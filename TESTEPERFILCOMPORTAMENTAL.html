@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interface</title>
+    <style>
+
+        body {
+            font-family: Inter, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #f4f4f4;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+        .sidebar img {
+            max-width: 100%;
+            margin-bottom: 20px;
+        }
+        .sidebar nav {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar nav li {
+            margin-bottom: 10px;
+        }
+        .sidebar nav li a {
+            display: block;
+            padding: 10px;
+            background-color: #e0e0e0;
+            text-decoration: none;
+            color: #333;
+            border-radius: 4px;
+        }
+        .sidebar nav li a:hover {
+            background-color: #ccc;
+        }
+        .sidebar nav li span {
+            cursor: pointer;
+            display: block;
+            padding: 10px;
+            background-color: #e0e0e0;
+            border-radius: 4px;
+        }
+        .sidebar nav li span:hover {
+            background-color: #ccc;
+        }
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+        .main-content header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .main-content header .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .main-content header nav {
+            display: flex;
+            gap: 20px;
+        }
+        .main-content header nav a {
+            text-decoration: none;
+            color: #333;
+        }
+        .main-content header nav a:hover {
+            text-decoration: underline;
+        }
+        .tree ul {
+            display: none;
+            list-style-type: none;
+            padding-left: 20px;
+        }
+        .tree ul.open {
+            display: block;
+            
+        }
+        .department-content {
+            display: none;
+            padding-left: 20px;
+        }
+        .department-content.active {
+            display: block;
+            display: padding 20px;
+        }
+        .coordenador-content {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <img src="1.png" alt="Logo">
+        <nav>
+            <ul>
+                <li><a style="margin: 10px; font-family: Arial, Helvetica, sans-serif; font-size: 16px;" href="#">Geral</a></li>
+                <li class="tree">
+                    
+                    <span style="margin: 10px; font-family: Arial, Helvetica, sans-serif; font-size: 16;" href="#">Perfil Comportamental</span>
+                    <ul>
+                        <li><a style="margin: 10px; font-family: Arial, Helvetica, sans-serif; font-size: 16px;" href="#" data-department="bpo-financeiro">BPO Financeiro</a></li>
+                        <li><a style="margin: 10px; font-family: Arial, Helvetica, sans-serif; font-size: 16px;" href="#" data-department="comercial">Comercial</a></li> 
+                        <li><a style="margin: 10px; font-family: Arial, Helvetica, sans-serif; font-size: 16px;" href="#" data-department="contabilidade">Contabilidade</a></li>  
+                        <li><a style="margin: 10px; font-family: Arial, Helvetica, sans-serif; font-size: 16px;" href="#" data-department="integração">Integração</a></li>
+                        <li><a style="margin: 10px; font-family: Arial, Helvetica, sans-serif; font-size: 16px;" href="#" data-department="dp">Dp</a></li>
+                        <li><a style="margin: 10px; font-family: Arial, Helvetica, sans-serif; font-size: 16px;" href="#" data-department="diferente-rh">Diferente-rh</a></li>
+                        <li><a style="margin: 10px; font-family: Arial, Helvetica, sans-serif; font-size: 16px;" href="#" data-department="fiscal-tributario">Fiscal-tributario</a></li>
+                        <li><a style="margin: 10px; font-family: Arial, Helvetica, sans-serif; font-size: 16px;" href="#" data-department="integracao">Integração</a></li>
+                        <li><a style="margin: 10px; font-family: Arial, Helvetica, sans-serif; font-size: 16px;" href="#" data-department="marketing">Marketing</a></li> 
+                        <li><a style="margin: 10px; font-family: Arial, Helvetica, sans-serif; font-size: 16px;" href="#" data-department="projetos-processos">Projetos-processos</a></li> 
+                        <li><a style="margin: 10px; font-family: Arial, Helvetica, sans-serif; font-size: 16px;" href="#" data-department="rh">Rh</a></li>
+                        <li><a style="margin: 10px; font-family: Arial, Helvetica, sans-serif; font-size: 16px;" href="#" data-department="secretaria">Secretaria</a></li>
+                        <li><a style="margin: 10px; font-family: Arial, Helvetica, sans-serif; font-size: 16px;" href="#" data-department="societario">Societário</a></li>
+                        <li><a style="margin: 10px; font-family: Arial, Helvetica, sans-serif; font-size: 16px;" href="#" data-department="socio-franco">Socio-franco</a></li>    
+                        <li><a style="margin: 10px; font-family: Arial, Helvetica, sans-serif; font-size: 16px;" href="#" data-department="ti-dev">Ti-dev</a></li>
+                        <li><a style="margin: 10px; font-family: Arial, Helvetica, sans-serif; font-size: 16px;" href="#" data-department="ti-infra">Ti-infra</a></li>
+                    </li>    
+                </ul>
+        </nav>
+    </div>
+    <div class="main-content">
+        <header>
+            <div class="logo">Franco</div>
+            <nav>
+                <button style="border:none; background: none;font-family: Arial, Helvetica, sans-serif;font-size: small;"><a href="#">Início</a></button>
+                <button style="border:none; background: none;font-family: Arial, Helvetica, sans-serif;font-size: small;"><a href="#">Principal</a></button>
+                <button style="border:none; background: none;font-family: Arial, Helvetica, sans-serif;font-size: small;"><a href="#">Organogramas</a></button>
+            </nav>
+        </header>
+        <div id="content-area">
+            <!-- Department content will be loaded here -->
+            <div class="department-content" id="bpo-financeiro">
+                <h2>BPO Financeiro</h2>
+                <p>Organograma BPO Financeiro.</p>
+                <ul>
+                    <ul>
+                        <button style="background: linear-gradient(to right, #236ac7, #0B770F); border: none; border-radius: 10px;padding: 10px 45.8px; font-size: 12.5;font-family: Arial, Helvetica, sans-serif; margin: 10px; cursor: pointer;" class="info-button-ana-pla" onclick="showInfo('info1')">
+                            Regiane Ferraz
+                            <div id="info" class="info-text">
+                            <strong>Cargo: Diretora</strong><br>
+                            Analista com Planejador
+                            </div>
+                        </button>
+                    </ul>
+                <ul>
+                        <button style="background: linear-gradient(to right, #FFAE00, #FD074D); border: none; border-radius: 10px;padding: 10px 36px; font-size: 12.5;font-family: Arial, Helvetica, sans-serif; margin: 10px; cursor: pointer;"class="info-button-com-exe" onclick="showInfo('info1')">
+                            Wallace Waetge
+                            <div id="info" class="info-text">
+                            <strong>Cargo: Gerente</strong><br>
+                            Comunicador com Executor
+                            </div>
+                        </button>
+                    </ul>
+                </ul>
+            </div>
+            <div class="department-content" id="comercial">
+                <h2>Comercial</h2>
+                <p>Organograma do Comercial</p>
+                <ul>
+                    <ul>
+                        <button style="background: linear-gradient(to right, #FFAE00, #FD074D); border: none; border-radius: 10px;padding: 10px 36px; font-size: 12.5;font-family: Arial, Helvetica, sans-serif; margin: 10px; cursor: pointer;"class="info-button-com-exe" onclick="showInfo('info1')">
+                            Wallace Waetge
+                            <div id="info" class="info-text">
+                            <strong>Cargo: Gerente</strong><br>
+                            Comunicador com Executor
+                            </div>
+                        </button>
+                    </ul>
+                    <ul>
+                        <button style="background: linear-gradient(to right, #FFAE00, #236ac7, #FD074D); border: none; border-radius: 10px;padding: 10px 5px; font-size: 12.5;font-family: Arial, Helvetica, sans-serif; margin: 10px; cursor: pointer;"class="info-button-com-exe" onclick="showInfo('info1')">
+                            Heloá Dehira
+                            <div id="info" class="info-text">
+                            <strong>Cargo: Auxiliar</strong><br>
+                            Comunicador com Analista e Executor
+                            </div>
+                        </button>
+                    </ul>
+                    <ul>
+                        <button style="background: linear-gradient(to right, #FD074D, #FFAE00); border: none; border-radius: 10px;padding: 10px 36px; font-size: 12.5;font-family: Arial, Helvetica, sans-serif; margin: 10px; cursor: pointer;"class="info-button-com-exe" onclick="showInfo('info1')">
+                            Alessandra Silva
+                            <div id="info" class="info-text">
+                            <strong>Cargo: Auxiliar</strong><br>
+                            Executor com Comunicador
+                            </div>
+                        </button>
+                    </ul>
+                    <ul>
+                        <button style="background: linear-gradient(to right, #0B770b, #3475ca); border: none; border-radius: 10px;padding: 10px 44px; font-size: 12.5;font-family: Arial, Helvetica, sans-serif; margin: 10px; cursor: pointer;"class="info-button-com-exe" onclick="showInfo('info1')">
+                            Diego Aiexe
+                            <div id="info" class="info-text">
+                            <strong>Cargo: Estagiário - FTA</strong><br>
+                            Planejador com Analista
+                            </div>
+                        </button>
+                    </ul>
+                    <ul>
+                        <button style="background: linear-gradient(to right, #FFAE00, #236ac7); border: none; border-radius: 10px;padding: 10px 38.5px; font-size: 12.5;font-family: Arial, Helvetica, sans-serif; margin: 10px; cursor: pointer;"class="info-button-com-exe" onclick="showInfo('info1')">
+                            Isabella Schavareto
+                            <div id="info" class="info-text">
+                            <strong>Cargo: Estagiária - FTA</strong><br>
+                            Comunicador com Analista
+                            </div>
+                        </button>
+                    </ul>
+                    </ul>
+            </div>
+            <div class="department-content" id="contabilidade">
+                <h2>Contabilidade</h2>
+                <p>Organograma da Contabilidade.</p>
+                <ul class="tree">
+                    <span style="font-size: 14px;">Gerência</span>
+                    <ul>
+                        <button style="background: linear-gradient(to right, #FFAE00, #0B770F); border: none; border-radius: 10px; padding: 10px 35px; font-size: 12.5px; font-family: Arial, Helvetica, sans-serif; margin: 10px; cursor: pointer;" class="info-button-com-pla" onclick="showInfo('info1')">
+                        Claudinei Silva
+                        <div id="info" class="info-text">
+                        <strong>Gerente</strong><br>
+                        Comunicador com Planejador
+                        </div>
+                        </button>
+                    </ul>
+                    </ul> 
+                <ul class="tree">
+                    <span style="font-size: 14px; margin: 5px">Liderança Leticia Cardoso:</span>
+                    <ul>
+                    <li>
+                        <button style="background: linear-gradient(to right, #236ac7, #0b9610); border: none; border-radius: 10px; padding: 10px 50px; font-size: 12.5px; font-family: Arial, Helvetica, sans-serif; margin: 10px; cursor: pointer;" class="info button-ana-pla" onclick="showInfo('info1')">
+                        Leticia Cardoso
+                        <div id="info" class="info-text">
+                        <strong>Coordenadora</strong><br>
+                        Analista com Planejador
+                        </div>
+                        </button>
+                    </li>
+                    <li>    
+                        <button style="background: linear-gradient(to right, #FFAE00, #FD074D); border: none; border-radius: 10px; padding: 10px 43.5px; font-size: 12.5px; font-family: Arial, Helvetica, sans-serif; margin: 10px; cursor: pointer;" class="info-button-com-exe" onclick="showInfo('info1')">
+                        Tainara Silva
+                        <div id="info" class="info-text">
+                        <strong>Analista</strong><br>
+                        Comunicador com Analista
+                        </div>
+                        </button>
+                    </li>
+                    <li>
+                        <button style="background: linear-gradient(to right,#0B770b, #236ac7); border: none; border-radius: 10px; padding: 10px 51px; font-size: 12.5px; font-family: Arial, Helvetica, sans-serif; margin: 10px; cursor: pointer;" class="info-button-pla-ana" onclick="showInfo('info1')">
+                        Maria Eduarda Souto
+                        <div id="info" class="info-text">
+                        <strong>Estagiária - FTA</strong><br>
+                        Planejador com Analista
+                        </div>
+                        </button>
+                    </li>
+                    </ul>
+                    </ul>
+                <ul class="tree">
+                    <span style="font-size: 14px; margin: 5px">Liderança Isabelle Santos:</span>
+                    <ul>
+                    <li>
+                        <button style="background: linear-gradient(to right, #FD074D, #236ac7); border: none; border-radius: 10px; padding: 10px 55.8px; font-size: 12.5px; font-family: Arial, Helvetica, sans-serif; margin: 10px; cursor: pointer;" class="info button-ana-pla" onclick="showInfo('info1')">
+                        Isabelle Santos
+                        <div id="info" class="info-text">
+                        <strong>Coordenadora</strong><br>
+                        Executor com Analista
+                        </div>
+                        </button>
+                    </li>
+                    <li>
+                        <button style="background: linear-gradient(to right, #236ac7, #0B770F); border: none; border-radius: 10px; padding: 10px 50.5px; font-size: 12.5px; font-family: Arial, Helvetica, sans-serif; margin: 10px; cursor: pointer;" class="info-button-com-exe" onclick="showInfo('info1')">
+                        Danielle Conceição
+                        <div id="info" class="info-text">
+                        <strong>Analista</strong><br>
+                        Analista com Planejador
+                        </div>
+                        </button>
+                    </li>
+                    <li><button style="background: #0B770b; border: none; border-radius: 10px; padding: 10px 74px; font-size: 12.5px; font-family: Arial, Helvetica, sans-serif; margin: 10px; cursor: pointer;" class="info-button-pla-ana" onclick="showInfo('info1')">
+                        Thainá Candido
+                        <div id="info" class="info-text">
+                        <strong>Assistente</strong><br>
+                        Planejador
+                        </div>
+                        </button>
+                    </li>
+                    <li>
+                        <button style="background: linear-gradient(to right, #FFAE00, #0B770b); border: none; border-radius: 10px; padding: 10px 35.7px; font-size: 12.5px; font-family: Arial, Helvetica, sans-serif; margin: 10px; cursor: pointer;" class="info-button-pla-ana" onclick="showInfo('info1')">
+                        Igor Oliveira
+                        <div id="info" class="info-text">
+                        <strong>Estagiário - FTA</strong><br>
+                        Comunicador com Planejador
+                        </div>
+                        </button>
+                    </ul>
+                    </ul>
+                    <ul class="tree">
+                    <span style="font-size: 14px; margin: 5px">Liderança Marcos Vinicius:</span>
+                    <ul>
+                    <li>
+                        <button style="background: linear-gradient(to right, #236ac7, #FD074D, #0B770b); border: none; border-radius: 10px; padding: 10px 19px; font-size: 12.5px; font-family: Arial, Helvetica, sans-serif; margin: 10px; cursor: pointer;" class="info button-ana-pla" onclick="showInfo('info')">
+                        Marcos Vinicius
+                        <div id="info" class="info-text">
+                        <strong>Coordenador</strong><br>
+                        Analista com Executor e Planejador
+                        </div>
+                        </button>
+                    </li>
+                    <li>
+                        <button style="background: linear-gradient(to right, #236ac7, #0B770F); border: none; border-radius: 10px; padding: 10px 50.8px; font-size: 12.5px; font-family: Arial, Helvetica, sans-serif; margin: 10px; cursor: pointer;" class="info-button-com-exe" onclick="showInfo('info')">
+                        Jadielson Santos
+                        <div id="info" class="info-text">
+                        <strong>Assistente</strong><br>
+                        Analista com Planejador
+                        </div>
+                        </button>
+                    </li>
+                    <li>
+                        <button style="background: linear-gradient(to right, #0B770b, #FFAE00); border: none; border-radius: 10px; padding: 10px 36px; font-size: 12.5px; font-family: Arial, Helvetica, sans-serif; margin: 10px; cursor: pointer;" class="info-button-pla-ana" onclick="showInfo('info')">
+                        Ana Clara Do Carmo
+                        <div id="info" class="info-text">
+                        <strong>Estagiária - FTA</strong><br>
+                         Planejador com Comunicador
+                        </div>
+                        </button>
+                    </ul>
+                    </ul>
+                <ul class="tree">
+                    <span style="font-size: 14px; margin: 5px">Liderança Ana Carolina Marques:</span>
+                    <ul>
+                    <li>
+                        <button style="background: linear-gradient(to right, #FFAE00, #FD074D); border: none; border-radius: 10px; padding: 10px 41px; font-size: 12.5px; font-family: Arial, Helvetica, sans-serif; margin: 10px; cursor: pointer;" class="info button-ana-pla" onclick="showInfo('info1')">
+                        Ana Carolina Marques
+                        <div id="info" class="info-text">
+                        <strong>Coordenadora</strong><br>
+                        Comunicador com Executor
+                        </div>
+                        </button>
+                    </li>
+                        <li><button style="background: #0B770F; border: none; border-radius: 10px; padding: 10px 72.2px; font-size: 12.5px; font-family: Arial, Helvetica, sans-serif; margin: 10px; cursor: pointer;" class="info-button-com-exe" onclick="showInfo('info1')">
+                            Eduardo Magri
+                            <div id="info" class="info-text">
+                                <strong>Cargo: Analista</strong><br>
+                                Planejador
+                            </div>
+                        </button></li>
+                        <li><button style="background: #FD074D; border: none; border-radius: 10px; padding: 10px 70px; font-size: 12.7px; font-family: Arial, Helvetica, sans-serif; margin: 10px; cursor: pointer;" class="info-button-pla-ana" onclick="showInfo('info1')">
+                            João Vitor Sousa
+                            <div id="info" class="info-text">
+                                <strong>Assistente</strong><br>
+                                Executor
+                            </div>
+                        </button></li>
+                        <li><button style="background: linear-gradient(to right, #FFAE00, #0B770b); border: none; border-radius: 10px; padding: 10px 36px; font-size: 12.5px; font-family: Arial, Helvetica, sans-serif; margin: 10px; cursor: pointer;" class="info-button-pla-ana" onclick="showInfo('info1')">
+                        Guilherme Cerqueira
+                        <div id="info" class="info-text">
+                            <strong>Estagiário - FTA</strong><br>
+                            Comunicador com Planejador
+                        </div>
+                    </ul>
+                        </ul>
+                    </ul>
+                    <ul class="tree">
+                        <span style="font-size: 14px; margin: 5px">Liderança Gabriella Santana:</span>
+                    <ul>
+                        <li><button style="background: linear-gradient(to right, #FD074D, #FFAE00); border: none; border-radius: 10px; padding: 10px 41.2px; font-size: 12.5px; font-family: Arial, Helvetica, sans-serif; margin: 10px; cursor: pointer;" class="info button-ana-pla" onclick="showInfo('info1')">
+                            Gabriella Santana
+                            <div id="info" class="info-text">
+                                <strong>Coordenadora</strong><br>
+                                Executor com Comunicador
+                            </div>
+                        </button></li>
+                        <li><button style="background: linear-gradient(to right, #0B770F, #236ac7); border: none; border-radius: 10px; padding: 10px 51.2px; font-size: 12.5px; font-family: Arial, Helvetica, sans-serif; margin: 10px; cursor: pointer" class="info-button-com-exe" onclick="showInfo('info1')">
+                            Walleson Simões
+                            <div id="info" class="info-text">
+                                <strong>Analista</strong><br>
+                                Planejador com Analista
+                            </div>
+                        </button></li>
+                        <li><button style="background: linear-gradient(to right, #FFAE00, #FD074D); border: none; border-radius: 10px; padding: 10px 48.2px; font-size: 12.7px; font-family: Arial, Helvetica, sans-serif; margin: 10px; cursor: pointer;" class="info-button-pla-ana" onclick="showInfo('info1')">
+                            Lucas Henrique Andrade
+                            <div id="info" class="info-text">
+                                <strong>Assistente</strong><br>
+                                Executor
+                            </div>
+                            </button>
+                        </li>
+                        </ul>
+                    </ul>
+            </div>   
+            <div class="department-content" id="integração">
+                    <h2>Integração</h2>
+                    <p>Organograma da Integração.</p>
+                    <button style="background: linear-gradient(to right, #FFAE00, #FD074D); border: none; border-radius: 10px; padding: 10px 40px; font-size: 12.7px; font-family: Arial, Helvetica, sans-serif; margin: 10px; cursor: pointer;" class="info-button-com-exe" onclick="showInfo('info1')">
+                        Matheus Bononi
+                        <div id="info" class="info-text">
+                            <strong>Coordenador</strong><br>
+                            Comunicador com Executor
+                        </div>
+                    </button>
+
+            </div>
+            <div class="department-content" id="marketing">
+                <h2>Marketing</h2>
+                <p>Organograma do Marketing.</p>
+                <ul>
+                    <ul>
+                        <button>Mariana Rodrigues</button>
+                        <button>Carolina Valesca</button>
+                    </ul>
+                    <button> Samuel Waetge</button>
+                </ul>    
+            </div>
+            <div class="department-content" id="projetos-processos">
+                <h2>Projetos e Processos</h2>
+                <p>Organograma do Projetos e Processos.</p>
+            </div>
+            <div class="department-content" id="rh">
+                <h2>RH</h2>
+                <p>Organograma do RH.</p>
+            </div>
+            <div class="department-content" id="secretaria">
+                <h2>Secretaria</h2>
+                <p>Organograma da Secretaria.</p>
+            </div>
+            <div class="department-content" id="societario">
+                <h2>Societário</h2>
+                <p>Organograma do Societário.</p>
+            </div>
+            <div class="department-content" id="socio-franco">
+                <h2>Sócio - Franco</h2>
+                <p>Organograma do Sócio - Franco.</p>
+            </div>
+            <div class="department-content" id="ti-dev">
+                <h2>TI Dev</h2>
+                <p>Organograma do TI Dev.</p>
+            </div>
+            <div class="department-content" id="ti-infra">
+                <h2>TI Infra</h2>
+                <p>Organograma do TI Infra.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const treeNodes = document.querySelectorAll('.tree span');
+            treeNodes.forEach(node => {
+                node.addEventListener('click', function () {
+                    const subTree = node.nextElementSibling;
+                    if (subTree && subTree.tagName === 'UL') {
+                        subTree.classList.toggle('open');
+                    }
+                });
+            });
+
+            function showInfo(infoId) {
+                var infoDiv = document.getElementById(infoId);
+                if (infoDiv.style.display === "block") {
+                    infoDiv.style.display = "none";
+                } else {
+                    infoDiv.style.display = "block";
+                }
+            }
+            
+            const departmentLinks = document.querySelectorAll('.tree a[data-department]');
+            departmentLinks.forEach(link => {
+                link.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    const departmentId = link.getAttribute('data-department');
+                    const contentArea = document.getElementById('content-area');
+                    const departmentContent = document.getElementById(departmentId);
+
+                    // Hide all department contents
+                    contentArea.querySelectorAll('.department-content').forEach(content => {
+                        content.classList.remove('active');
+                    });
+
+                    // Show the selected department content
+                    departmentContent.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
